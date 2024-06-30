@@ -1,0 +1,8 @@
+docUpload:
+    handler: upload/docUpload.handler
+    role: ${env:LAMBDA_ROLE}
+    events:
+        - http:
+              path: /docUpload
+              method: post
+              cors: true

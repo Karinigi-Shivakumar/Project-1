@@ -1,0 +1,60 @@
+updateWorkflow:
+    handler: workflow/updateWorkflow.handler
+    role: ${env:LAMBDA_ROLE}
+    events:
+        - http:
+              path: /workflow/{id}
+              method: put
+              cors: true
+
+deleteWorkflow:
+    handler: workflow/deleteWorkflow.handler
+    role: ${env:LAMBDA_ROLE}
+    events:
+        - http:
+              path: /workflow/{id}
+              method: delete
+              cors: true
+
+addWorkflow:
+    handler: workflow/addWorkflow.handler
+    role: ${env:LAMBDA_ROLE}
+    events:
+        - http:
+              path: /workflow
+              method: post
+              cors: true
+
+getAllWorkflows:
+    handler: workflow/getAllWorkflows.handler
+    role: ${env:LAMBDA_ROLE}
+    events:
+        - http:
+              path: /workflow
+              method: get
+              cors: true
+getWorkflow:
+    handler: workflow/getWorkflow.handler
+    role: ${env:LAMBDA_ROLE}
+    events:
+        - http:
+              path: /workflow/{id}
+              method: get
+              cors: true
+template:
+    handler: workflow/template.handler
+    role: ${env:LAMBDA_ROLE}
+    events:
+        - http:
+              path: /workflow/template
+              method: get
+              cors: true  
+                          
+addTemplate:
+    handler: workflow/addTemplate.handler
+    role: ${env:LAMBDA_ROLE}
+    events:
+        - http:
+              path: /workflow/template
+              method: post
+              cors: true

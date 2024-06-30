@@ -1,0 +1,44 @@
+getOrgProjectDetails:
+    handler: dashboard/getOrgProjectDetails.handler
+    role: ${env:LAMBDA_ROLE}
+    events:
+        - http:
+              path: /org_projects_overview
+              method: get
+              cors: true
+
+getProjectsUsecaseOverview:
+    handler: dashboard/getProjectsUsecaseOverview.handler
+    role: ${env:LAMBDA_ROLE}
+    events:
+        - http:
+              path: /projects_usecase_overview
+              method: get
+              cors: true
+
+getResourcesTasksStatus:
+    handler: dashboard/getResourcesTasksStatus.handler
+    role: ${env:LAMBDA_ROLE}
+    events:
+        - http:
+              path: /resources_task_status
+              method: get
+              cors: true
+
+getProjectsOverview:
+    handler: dashboard/getProjectsOverview.handler
+    role: ${env:LAMBDA_ROLE}
+    events:
+        - http:
+              path: /projects_overview
+              method: get
+              cors: true
+
+getProjectResourceOverview:
+    handler: dashboard/getProjectResourceOverview.handler
+    role: ${env:LAMBDA_ROLE}
+    events:
+        - http:
+              path: /projects_resource_overview
+              method: get
+              cors: true

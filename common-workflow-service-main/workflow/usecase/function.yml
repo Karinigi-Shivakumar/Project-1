@@ -1,0 +1,97 @@
+getUsecase:
+    handler: usecase/getUsecase.handler
+    role: ${env:LAMBDA_ROLE}
+    events:
+        - http:
+              path: /usecase/{id}
+              method: get
+              cors: true
+
+updateUsecase:
+    handler: usecase/updateUsecase.handler
+    role: ${env:LAMBDA_ROLE}
+    events:
+        - http:
+              path: /usecase/{id}
+              method: put
+              cors: true
+
+deleteUsecase:
+    handler: usecase/deleteUsecase.handler
+    role: ${env:LAMBDA_ROLE}
+    events:
+        - http:
+              path: usecase/{id}
+              method: delete
+              cors: true
+
+getUsecases:
+    handler: usecase/getUsecases.handler
+    role: ${env:LAMBDA_ROLE}
+    events:
+        - http:
+              path: /usecase
+              method: get
+              cors: true
+addusecase:
+    handler: usecase/addusecase.handler
+    role: ${env:LAMBDA_ROLE}
+    events:
+        - http:
+              path: /usecase
+              method: post
+              cors: true
+
+getUsecaseForm:
+    handler: usecase/getUsecaseForm.handler
+    role: ${env:LAMBDA_ROLE}
+    events:
+        - http:
+              path: /usecase/{id}/form
+              method: get
+              cors: true
+
+getUsecaseAsset:
+    handler: usecase/getUsecaseAsset.handler
+    role: ${env:LAMBDA_ROLE}
+    events:
+        - http:
+              path: /usecase/{id}/asset
+              method: get
+              cors: true 
+
+getUsecasePlanning:
+    handler: usecase/getUsecasePlanning.handler
+    role: ${env:LAMBDA_ROLE}
+    events:
+        - http:
+              path: /usecase/{id}/planning
+              method: get
+              cors: true
+
+assignStage:
+    handler: usecase/assignStage.handler
+    role: ${env:LAMBDA_ROLE}
+    events:
+        - http:
+              path: /usecase/{id}/assignStage
+              method: put
+              cors: true              
+
+updateChecklist:
+    handler: usecase/updateChecklist.handler
+    role: ${env:LAMBDA_ROLE}
+    events:
+        - http:
+              path: /usecase/{id}/checklist
+              method: put
+              cors: true  
+
+getUsecaseTask:
+    handler: usecase/getUsecaseTask.handler
+    role: ${env:LAMBDA_ROLE}
+    events:
+        - http:
+              path: /usecase/{id}/task
+              method: get
+              cors: true                                 

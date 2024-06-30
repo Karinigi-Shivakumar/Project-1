@@ -1,0 +1,71 @@
+completeTask:
+    handler: task/completeTask.handler
+    role: ${env:LAMBDA_ROLE}
+    events:
+        - http:
+              path: /task/{taskId}/complete
+              method: put
+              cors: true
+
+addComment:
+    handler: task/addComment.handler
+    role: ${env:LAMBDA_ROLE}
+    events:
+        - http:
+              path: /task/{taskId}/comment
+              method: put
+              cors: true
+
+assignTask:
+    handler: task/assignTask.handler
+    role: ${env:LAMBDA_ROLE}
+    events:
+        - http:
+              path: /task/{taskId}/assign/{resourceId}
+              method: put
+              cors: true
+
+uploadMetaDoc:
+    handler: task/uploadMetaDoc.handler
+    role: ${env:LAMBDA_ROLE}
+    events:
+        - http:
+              path: /task/{taskId}/doc
+              method: post
+              cors: true
+
+deleteMetaDoc: 
+    handler: task/deleteMetaDoc.handler
+    role: ${env:LAMBDA_ROLE}
+    events:
+        - http:
+              path: /task/{taskId}/docs/{docId}
+              method: delete
+              cors: true
+
+# getTaskDocs:
+#     handler: task/getTaskDocs.handler
+#     role: ${env:LAMBDA_ROLE}
+#     events:
+#         - http:
+#               path: /task/{taskId}/docs
+#               method: get
+#               cors: true
+
+addReply:
+    handler: task/addReply.handler
+    role: ${env:LAMBDA_ROLE}
+    events:
+        - http:
+              path: /task/{taskId}/reply
+              method: put
+              cors: true
+
+# getTask:
+#     handler: task/getTask.handler
+#     role: ${env:LAMBDA_ROLE}
+#     events:
+#         - http:
+#               path: /task/{id}
+#               method: get
+#               cors: true              

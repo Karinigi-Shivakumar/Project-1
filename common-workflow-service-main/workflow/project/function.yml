@@ -1,0 +1,67 @@
+getProject:
+    handler: project/getProject.handler
+    role: ${env:LAMBDA_ROLE}
+    events:
+        - http:
+              path: /project/{id}
+              method: get
+              cors: true
+
+## update project
+
+## delete project
+
+getProjects:
+    handler: project/getProjects.handler
+    role: ${env:LAMBDA_ROLE}
+    events:
+        - http:
+              path: /project
+              method: get
+              cors: true
+
+addProject:
+    handler: project/addProject.handler
+    role: ${env:LAMBDA_ROLE}
+    events:
+        - http:
+              path: /project
+              method: post
+              cors: true
+
+getProjectTeam:
+    handler: project/getProjectTeam.handler
+    role: ${env:LAMBDA_ROLE}
+    events:
+        - http:
+              path: /project/{id}/team
+              method: get
+              cors: true
+
+addTeamToProject:
+    handler: project/addTeamToProject.handler
+    role: ${env:LAMBDA_ROLE}
+    events:
+        - http:
+              path: /project/{id}/team
+              method: put
+              cors: true
+
+getProjectWorkflows:
+    handler: project/getProjectWorkflows.handler
+    role: ${env:LAMBDA_ROLE}
+    events:
+        - http:
+              path: /project/{id}/workflow
+              method: get
+              cors: true
+
+## This api can be merged with dashboards getResourcesTaskStatus.js -> no api spec written
+projectsResourcesTasksStatus:
+    handler: project/projectsResourcesTasksStatus.handler
+    role: ${env:LAMBDA_ROLE}
+    events:
+        - http:
+              path: /project/{id}/team/status
+              method: get
+              cors: true

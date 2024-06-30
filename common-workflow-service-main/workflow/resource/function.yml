@@ -1,0 +1,42 @@
+addResource:
+    handler: resource/addResource.handler
+    role: ${env:LAMBDA_ROLE}
+    events:
+        - http:
+              path: /resource
+              method: post
+              cors: true
+
+getResourcesByName:
+    handler: resource/getResourcesByName.handler
+    role: ${env:LAMBDA_ROLE}
+    events:
+        - http:
+              path: /get_resource_by_name
+              method: get
+              cors: true
+
+getResourcesByRole:
+    handler: resource/getResourcesByRole.handler
+    role: ${env:LAMBDA_ROLE}
+    events:
+        - http:
+              path: /get_resource_by_role
+              method: get
+
+getResources:
+    handler: resource/getResources.handler
+    role: ${env:LAMBDA_ROLE}
+    events:
+        - http:
+              path: /resource
+              method: get
+              cors: true
+
+# getResourcesListView:
+#     handler: resource/getResourcesListView.handler
+#     role: ${env:LAMBDA_ROLE}
+#     events:
+#         - http:
+#               path: /resources/list
+#               method: get

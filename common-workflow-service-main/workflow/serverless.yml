@@ -1,0 +1,38 @@
+service: workflow-lambda
+
+frameworkVersion: "3"
+
+useDotenv: true
+
+plugins:
+    - serverless-offline
+
+custom:
+  stage: ${opt:stage, 'dev'}
+
+provider:
+    name: aws
+    stage: ${self:custom.stage}
+    timeout: 15
+    runtime: nodejs18.x
+    region: us-east-1
+    deploymentBucket:
+      name: workflow-lambda-dev-serverlessdeploymentbucket-kkydemn5hkgz    
+    environment:
+        BUCKET_NAME: ${env:BUCKET_NAME}
+        BUCKET_FOLDER_NAME: ${env:BUCKET_FOLDER_NAME}
+
+functions: 
+    - ${file(./project/function.yml)}
+    - ${file(./workflow/function.yml)}
+    - ${file(./usecase/function.yml)}
+    - ${file(./dashboard/function.yml)}
+    - ${file(./task/function.yml)}
+    - ${file(./resource/function.yml)}
+    - ${file(./upload/function.yml)}
+
+# custom:
+#   http:
+#     cors:
+#       origin: '*' # Allow requests from any origin
+#       methods: ['OPTIONS', 'POST', 'PUT']    
